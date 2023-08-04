@@ -24,7 +24,7 @@ class Consultar:
             st.title(self.titulo)
             sidebar=st.sidebar
             data=ExcelDW.DownloadXLSX(temp_df)
-            sidebar.download_button('Download',data=data,file_name='Base de importação.xlsx')
+            sidebar.download_button('Layout',data=data,file_name='Base de importação.xlsx')
 
             files=st.file_uploader('Importar arquivo',type=['.xlsx'])
 
