@@ -1,0 +1,8 @@
+selenium==4.10.0
+beautifulsoup4==4.11.2
+pytest==7.2.1
+pandas==1.5.3
+streamlit==1.22.0
+webdriver-manager==3.8.5
+webdrivermanager==0.10.0
+XlsxWriter==3.0.3
