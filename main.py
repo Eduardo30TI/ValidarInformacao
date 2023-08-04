@@ -1,18 +1,4 @@
-from Acentos import Acentuacao
-from CEP import CEP
-from DownloadXLSX import ExcelDW
-from selenium import webdriver
-from webdriver_manager.firefox import GeckoDriverManager
-from selenium.webdriver.firefox.service import Service
-from selenium.webdriver.firefox.options  import Options
-from selenium.webdriver.support.wait import WebDriverWait
-from selenium.webdriver.common.keys import Keys
-from selenium.webdriver.common.by import By
-from selenium.webdriver.common.action_chains import ActionChains
-from selenium.common.exceptions import WebDriverException
-from bs4 import BeautifulSoup
 import warnings
-import time
 import streamlit as st
 from pages.tela import*
 
