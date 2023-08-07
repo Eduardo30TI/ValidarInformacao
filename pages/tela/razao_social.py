@@ -32,12 +32,15 @@ class Consultar:
             
                 df=pd.read_excel(files)
                 df['CNPJ']=df['CNPJ'].apply(self.FormatarCNPJ)
+                df.drop_duplicates(inplace=True)
 
                 bar=st.progress(0)
                 texto=st.empty()
                 cont=0
 
                 lista=df['CNPJ'].tolist()
+                razao_social=[]
+                nome_fantasia=[]
        
                 for c in lista:
 
@@ -52,13 +55,23 @@ class Consultar:
                         cnpj=CNPJ(c)
                         json=cnpj.GetDados()
                     
-                        temp_dict={'razao_social':'Razão Social'}
-
+                        temp_dict={'razao_social':'Razão Social','nome_fantasia':'Nome Fantasia'}
+                                                
                         for k,v in temp_dict.items():
 
                             nome=json[k]
-                             
-                            df.loc[df['CNPJ']==c,v]=str(nome)
+                            
+                            if k=='razao_social':
+
+                                razao_social.append(nome)
+
+                                pass
+
+                            else:
+
+                                nome_fantasia.append(nome)
+
+                                pass
 
                             pass
 
@@ -66,11 +79,16 @@ class Consultar:
 
                     except Exception as erro:
 
+                        nome_fantasia.append('')
+                        razao_social.append('')
+
                         continue
 
                     #break
 
                     pass
+
+                print(len(razao_social),len(nome_fantasia))
                 
                 #df=df.loc[df['Razão Social'].notnull()]
 
