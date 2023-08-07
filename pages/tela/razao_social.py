@@ -91,7 +91,7 @@ class Consultar:
                 df['Razão Social']=razao_social
                 df['Nome Fantasia']=nome_fantasia
                 
-                #df=df.loc[df['Razão Social'].notnull()]
+                df=df.loc[df['Razão Social']!='']
 
                 st.dataframe(df,use_container_width=True)
                     
