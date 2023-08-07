@@ -57,10 +57,8 @@ class Consultar:
                         for k,v in temp_dict.items():
 
                             nome=json[k]
-                            print(nome)
-
+ 
                             df.loc[df['CNPJ']==c,v]=nome
-                            print(df)
 
                             pass
 
@@ -105,7 +103,7 @@ class Consultar:
 
         val=f'0{val}' if len(val)<14 else val
 
-        return val
+        return str(val)
 
         pass
 
