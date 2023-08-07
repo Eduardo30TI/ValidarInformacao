@@ -79,6 +79,7 @@ class Consultar:
                     
                 data=ExcelDW.DownloadXLSX(df)
                 st.download_button('Extrair',data=data,file_name='Base de clientes.xlsx')
+                #streamlit_js_eval(js_expression='parent.window.location.reload()')
          
                 pass
             
@@ -87,7 +88,6 @@ class Consultar:
                 pass
 
             pass
-    
 
         pass
 
