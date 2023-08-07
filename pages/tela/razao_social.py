@@ -31,7 +31,8 @@ class Consultar:
             try:
             
                 df=pd.read_excel(files)
-                #df['CNPJ']=df['CNPJ'].apply(self.FormatarCNPJ)
+                df['CNPJ']=df['CNPJ'].apply(self.FormatarCNPJ)
+                print(df)
 
                 bar=st.progress(0)
                 texto=st.empty()
