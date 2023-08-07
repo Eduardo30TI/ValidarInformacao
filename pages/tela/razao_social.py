@@ -37,7 +37,7 @@ class Consultar:
                 texto=st.empty()
                 cont=0
 
-                lista=df['CNPJ'].unique().tolist()
+                lista=df['CNPJ'].tolist()
        
                 for c in lista:
 
@@ -59,17 +59,15 @@ class Consultar:
                             nome=json[k]
                             print(nome)
  
-                            #df.loc[df['CNPJ']==c,v]=nome
+                            df.loc[df['CNPJ']==c,v]=nome
 
-                            print(df.loc[df['CNPJ']==c].index)
+                            print(df.loc[df['CNPJ']==c,v].values[-1])
 
                             pass
 
                         pass
 
                     except Exception as erro:
-
-                        print(erro)
 
                         continue
 
