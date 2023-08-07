@@ -31,7 +31,7 @@ class Consultar:
             try:
             
                 df=pd.read_excel(files)
-                df['CNPJ']=df['CNPJ'].apply(self.FormatarCNPJ)
+                #df['CNPJ']=df['CNPJ'].apply(self.FormatarCNPJ)
 
                 bar=st.progress(0)
                 texto=st.empty()
@@ -50,9 +50,7 @@ class Consultar:
                     try:
                                                 
                         cnpj=CNPJ(str(c))
-                        print(cnpj)
                         json=cnpj.GetDados()
-
                     
                         temp_dict={'razao_social':'Razão Social','nome_fantasia':'Nome Fantasia'}
 
@@ -76,7 +74,7 @@ class Consultar:
 
                     pass
                 
-                #df=df.loc[df['Razão Social'].notnull()]
+                df=df.loc[df['Razão Social'].notnull()]
 
                 st.dataframe(df,use_container_width=True)
                     
