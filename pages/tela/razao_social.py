@@ -59,7 +59,7 @@ class Consultar:
                             nome=json[k]
  
                             df.loc[df['CNPJ']==str(c),v]=nome
-                            print(df)
+                            st.code(df,language='python')
 
                             pass
 
