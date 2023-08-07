@@ -88,7 +88,8 @@ class Consultar:
 
                     pass
 
-                print(len(razao_social),len(nome_fantasia))
+                df['Razão Social']=razao_social
+                df['Nome Fantasia']=nome_fantasia
                 
                 #df=df.loc[df['Razão Social'].notnull()]
 
