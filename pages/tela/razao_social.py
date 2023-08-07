@@ -46,20 +46,29 @@ class Consultar:
                     perc=float(round(cont/len(lista),4))
                     bar.progress(perc)
                     texto.write(f'{cont} de {len(lista)}')                    
+
+                    try:
            
-                    cnpj=CNPJ(c)
-                    json=cnpj.GetDados()
+                        cnpj=CNPJ(c)
+                        json=cnpj.GetDados()
                     
-                    temp_dict={'razao_social':'Razão Social','nome_fantasia':'Nome Fantasia'}
+                        temp_dict={'razao_social':'Razão Social','nome_fantasia':'Nome Fantasia'}
 
-                    for k,v in temp_dict.items():
+                        for k,v in temp_dict.items():
 
-                        nome=json[k]
+                            nome=json[k]
  
-                        df.loc[df['CNPJ']==c,v]=nome
+                            df.loc[df['CNPJ']==str(c),v]=nome
+
+                            pass
 
                         pass
 
+                    except Exception as erro:
+
+                        print(erro)
+
+                        continue
 
                     #break
 
