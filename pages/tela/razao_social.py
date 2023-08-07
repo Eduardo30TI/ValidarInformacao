@@ -50,10 +50,10 @@ class Consultar:
 
                     try:
 
-                        print(c)
-                        print(json)                      
+                        print(c)              
                         cnpj=CNPJ(c)
                         json=cnpj.GetDados()
+                        print(json)
                     
                         temp_dict={'razao_social':'Razão Social','nome_fantasia':'Nome Fantasia'}
 
