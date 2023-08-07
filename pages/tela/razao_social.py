@@ -38,7 +38,7 @@ class Consultar:
                 cont=0
 
                 lista=df['CNPJ'].unique().tolist()
-
+       
                 for c in lista:
 
                     cont+=1
@@ -48,8 +48,8 @@ class Consultar:
                     texto.write(f'{cont} de {len(lista)}')                    
 
                     try:
-                        
-                        cnpj=CNPJ(c)
+                                                
+                        cnpj=CNPJ(str(c))
                         print(cnpj)
                         json=cnpj.GetDados()
 
