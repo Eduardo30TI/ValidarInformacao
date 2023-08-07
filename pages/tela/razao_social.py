@@ -53,13 +53,13 @@ class Consultar:
                         print(c)              
                         cnpj=CNPJ(c)
                         json=cnpj.GetDados()
-                        print(json)
                     
                         temp_dict={'razao_social':'Razão Social','nome_fantasia':'Nome Fantasia'}
 
                         for k,v in temp_dict.items():
 
                             nome=json[k]
+                            print(nome)
 
                             df.loc[df['CNPJ']==c,v]=nome
 
