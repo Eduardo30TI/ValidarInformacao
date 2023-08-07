@@ -50,6 +50,7 @@ class Consultar:
                     try:
                         
                         cnpj=CNPJ(c)
+                        print(cnpj)
                         json=cnpj.GetDados()
 
                     
@@ -65,9 +66,11 @@ class Consultar:
 
                         pass
 
-                    except:
+                    except Exception as erro:
 
-                        continue
+                        print(erro)
+
+                        pass
 
                     #break
 
