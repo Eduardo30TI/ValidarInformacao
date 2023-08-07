@@ -72,7 +72,7 @@ class Consultar:
 
                         pass
 
-                    break
+                    #break
 
                     pass
                 
