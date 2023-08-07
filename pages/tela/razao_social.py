@@ -32,7 +32,6 @@ class Consultar:
             
                 df=pd.read_excel(files)
                 df['CNPJ']=df['CNPJ'].apply(self.FormatarCNPJ)
-                print(df)
 
                 bar=st.progress(0)
                 texto=st.empty()
@@ -49,8 +48,7 @@ class Consultar:
                     texto.write(f'{cont} de {len(lista)}')                    
 
                     try:
-
-                        print(c)              
+           
                         cnpj=CNPJ(c)
                         json=cnpj.GetDados()
                     
@@ -62,6 +60,7 @@ class Consultar:
                             print(nome)
 
                             df.loc[df['CNPJ']==c,v]=nome
+                            print(df)
 
                             pass
 
@@ -69,9 +68,7 @@ class Consultar:
 
                     except Exception as erro:
 
-                        print(erro)
-
-                        pass
+                        continue
 
                     #break
 
