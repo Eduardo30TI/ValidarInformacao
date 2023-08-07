@@ -57,9 +57,11 @@ class Consultar:
                         for k,v in temp_dict.items():
 
                             nome=json[k]
+                            print(nome)
  
-                            df.loc[df['CNPJ']==str(c),v]=nome
-                            st.code(df,language='python')
+                            #df.loc[df['CNPJ']==c,v]=nome
+
+                            print(df.loc[df['CNPJ']==c].index)
 
                             pass
 
