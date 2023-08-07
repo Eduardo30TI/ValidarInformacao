@@ -73,7 +73,7 @@ class Consultar:
 
                     pass
                 
-                df=df.loc[df['Razão Social'].notnull()]
+                #df=df.loc[df['Razão Social'].notnull()]
 
                 st.dataframe(df,use_container_width=True)
                     
