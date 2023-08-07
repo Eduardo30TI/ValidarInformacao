@@ -48,8 +48,10 @@ class Consultar:
                     texto.write(f'{cont} de {len(lista)}')                    
 
                     try:
-                                                
-                        cnpj=CNPJ(str(c))
+
+                        print(c)
+                        print(json)                      
+                        cnpj=CNPJ(c)
                         json=cnpj.GetDados()
                     
                         temp_dict={'razao_social':'Razão Social','nome_fantasia':'Nome Fantasia'}
@@ -70,7 +72,7 @@ class Consultar:
 
                         pass
 
-                    #break
+                    break
 
                     pass
                 
