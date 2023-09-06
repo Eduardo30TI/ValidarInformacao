@@ -123,8 +123,6 @@ class GS:
                                         cep=endereco.split()[-1]
 
                                         telefone=elements.select_one('span.LrzXr.zdqRlf.kno-fv').get_text()
-                                        ddd=telefone.split()[0]
-                                        telefone=telefone.split()[-1].replace('-','')
 
                                         for r in ['(',')']:
 
