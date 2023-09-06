@@ -77,7 +77,7 @@ class GS:
 
                     excel=pd.DataFrame(columns=['Razão Social','Endereço','Telefone','CEP'])
                     opcao=Options()
-                    #opcao.add_argument('--headless')
+                    opcao.add_argument('--headless')
                     
                     with webdriver.Firefox(service=service,options=opcao) as driver:
 
