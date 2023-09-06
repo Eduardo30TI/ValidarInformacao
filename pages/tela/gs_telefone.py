@@ -76,7 +76,7 @@ class GS:
                     #service=Service(GeckoDriverManager().install())
                     service=Service()
 
-                    excel=pd.DataFrame(columns=['Razão Social','Endereço','DDD','Telefone','CEP'])
+                    excel=pd.DataFrame(columns=['Razão Social','Endereço','Telefone','CEP'])
                     opcao=Options()
                     opcao.add_argument('--headless')
                     
@@ -130,7 +130,7 @@ class GS:
 
                                             pass
 
-                                        excel.loc[len(excel)]=[n,endereco,ddd,telefone,cep]
+                                        excel.loc[len(excel)]=[n,endereco,telefone,cep]
                                                             
                                         pass
 
