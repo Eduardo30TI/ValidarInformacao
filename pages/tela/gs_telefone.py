@@ -84,12 +84,14 @@ class GS:
 
                         bar=st.progress(0)
                         cont=0
-                        
+                        label=st.empty()
+
                         for n in lista:
 
                             cont+=1
                             perc=float(round(cont/len(lista),4))
                             bar.progress(perc)
+                            label.write(f'Consultando {cont} de {len(lista)}')
 
                             try:
 
