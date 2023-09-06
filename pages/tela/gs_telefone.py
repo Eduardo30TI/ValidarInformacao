@@ -94,10 +94,10 @@ class GS:
                             perc=float(round(cont/len(lista),4))
                             bar.progress(perc)
                             label.write(f'Consultando {cont} de {len(lista)}')
-
-                            driver.get(link)
-                            
+                                                        
                             try:
+
+                                driver.get(link)
 
                                 campo=WebDriverWait(driver,timeout=espera).until(lambda d: d.find_element(By.ID,'APjFqb'))
                                 campo.send_keys(n)
