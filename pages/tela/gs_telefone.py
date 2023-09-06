@@ -96,16 +96,16 @@ class GS:
                             label.write(f'Consultando {cont} de {len(lista)}')
 
                             driver.get(link)
-
-                            campo=WebDriverWait(driver,timeout=espera).until(lambda d: d.find_element(By.ID,'APjFqb'))
-                            campo.send_keys(n)
-                            time.sleep(2)
-                            campo.send_keys(Keys.ENTER)
-
-                            #kp-wp-tab-overview
-                            #I6TXqe
                             
                             try:
+
+                                campo=WebDriverWait(driver,timeout=espera).until(lambda d: d.find_element(By.ID,'APjFqb'))
+                                campo.send_keys(n)
+                                time.sleep(2)
+                                campo.send_keys(Keys.ENTER)
+
+                                #kp-wp-tab-overview
+                                #I6TXqe
 
                                 tags=WebDriverWait(driver,timeout=espera).until(lambda d: d.find_elements(By.CSS_SELECTOR,'div.I6TXqe'))
                                 
