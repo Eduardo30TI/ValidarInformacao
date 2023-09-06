@@ -89,13 +89,13 @@ class GS:
                         label=st.empty()
 
                         for n in lista:
-                            
-                            cont+=1
-                            perc=float(round(cont/len(lista),4))
-                            bar.progress(perc)
-                            label.write(f'Consultando {cont} de {len(lista)}')
                                                         
                             try:
+
+                                cont+=1
+                                perc=float(round(cont/len(lista),4))
+                                bar.progress(perc)
+                                label.write(f'Consultando {cont} de {len(lista)}')                                
 
                                 driver.get(link)
 
@@ -107,7 +107,7 @@ class GS:
                                 #kp-wp-tab-overview
                                 #I6TXqe
 
-                                tags=WebDriverWait(driver,timeout=espera).until(lambda d: d.find_elements(By.CSS_SELECTOR,'div.I6TXqe'))
+                                tags=WebDriverWait(driver,timeout=espera).until(lambda d: d.find_elements(By.ID,'kp-wp-tab-overview'))
                                 
                                 if len(tags)>0:
                                                                 
