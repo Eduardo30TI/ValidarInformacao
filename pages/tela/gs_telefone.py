@@ -134,8 +134,8 @@ class GS:
                     data=ExcelDW.DownloadXLSX(excel)
 
                     st.download_button('Extrair',data=data,file_name='Lista de Telefone.xlsx')
-                    time.sleep(5)
-                    streamlit_js_eval(js_expression='parent.window.location.reload()')
+                    #time.sleep(5)
+                    #streamlit_js_eval(js_expression='parent.window.location.reload()')
 
                     pass
 

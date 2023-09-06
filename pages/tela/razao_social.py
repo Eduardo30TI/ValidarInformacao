@@ -97,8 +97,8 @@ class Consultar:
                     
                 data=ExcelDW.DownloadXLSX(df)
                 st.download_button('Extrair',data=data,file_name='Base de clientes.xlsx')
-                time.sleep(5)
-                streamlit_js_eval(js_expression='parent.window.location.reload()')
+                #time.sleep(5)
+                #streamlit_js_eval(js_expression='parent.window.location.reload()')
          
                 pass
             
