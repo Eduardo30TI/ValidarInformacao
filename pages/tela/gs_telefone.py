@@ -16,6 +16,7 @@ import time
 import streamlit as st
 import pandas as pd
 import streamlit_js_eval
+import re
 
 warnings.filterwarnings('error')
 
@@ -75,7 +76,7 @@ class GS:
                     #service=Service(GeckoDriverManager().install())
                     service=Service()
 
-                    excel=pd.DataFrame(columns=['Razão Social','Endereço','Telefone','CEP'])
+                    excel=pd.DataFrame(columns=['Razão Social','Endereço','DDD','Telefone','CEP'])
                     opcao=Options()
                     opcao.add_argument('--headless')
                     
@@ -88,37 +89,59 @@ class GS:
                         label=st.empty()
 
                         for n in lista:
-
+                            
                             cont+=1
                             perc=float(round(cont/len(lista),4))
                             bar.progress(perc)
                             label.write(f'Consultando {cont} de {len(lista)}')
 
+                            driver.get(link)
+
+                            campo=WebDriverWait(driver,timeout=espera).until(lambda d: d.find_element(By.ID,'APjFqb'))
+                            campo.send_keys(n)
+                            time.sleep(2)
+                            campo.send_keys(Keys.ENTER)
+
+                            #kp-wp-tab-overview
+                            #I6TXqe
+                            
                             try:
 
-                                driver.get(link)
+                                tags=WebDriverWait(driver,timeout=espera).until(lambda d: d.find_elements(By.CSS_SELECTOR,'div.I6TXqe'))
+                                
+                                if len(tags)>0:
+                                                                
+                                    page=BeautifulSoup(driver.page_source,'html.parser')
 
-                                campo=WebDriverWait(driver,timeout=espera).until(lambda d: d.find_element(By.ID,'APjFqb'))
-                                campo.send_keys(n)
-                                time.sleep(2)
-                                campo.send_keys(Keys.ENTER)
+                                    div=page.select_one('div#kp-wp-tab-overview')
+                                    elements=div.select_one('div.B03h3d.V14nKc.i8qq8b.ptcLIOszQJu__wholepage-card.wp-ms')
 
-                                #kp-wp-tab-overview
-                                WebDriverWait(driver,timeout=espera).until(lambda d: d.find_element(By.ID,'kp-wp-tab-overview'))
+                                    try:
 
-                                page=BeautifulSoup(driver.page_source,'html.parser')
+                                        endereco=elements.select_one('div.QsDR1c').get_text()
+                                        endereco=endereco[len('Endereço:'):].strip()
+                                        cep=endereco.split()[-1]
 
-                                div=page.select_one('div#kp-wp-tab-overview')
-                                elements=div.select_one('div.B03h3d.V14nKc.i8qq8b.ptcLIOszQJu__wholepage-card.wp-ms')
+                                        telefone=elements.select_one('span.LrzXr.zdqRlf.kno-fv').get_text()
+                                        ddd=telefone.split()[0]
+                                        telefone=telefone.split()[-1].replace('-','')
 
-                                endereco=elements.select_one('div.QsDR1c').get_text()
-                                endereco=endereco[len('Endereço:'):].strip()
-                                cep=endereco.split()[-1]
+                                        for r in ['(',')']:
 
-                                telefone=elements.select_one('span.LrzXr.zdqRlf.kno-fv').get_text()
+                                            ddd=ddd.replace(r,'')
 
-                                excel.loc[len(excel)]=[n,endereco,telefone,cep]
-                                                       
+                                            pass
+
+                                        excel.loc[len(excel)]=[n,endereco,ddd,telefone,cep]
+                                                            
+                                        pass
+
+                                    except:
+
+                                        continue
+
+                                    pass
+
                                 pass
 
                             except:
