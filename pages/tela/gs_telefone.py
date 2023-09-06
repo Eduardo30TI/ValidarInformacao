@@ -2,9 +2,9 @@ from Acentos import Acentuacao
 from CEP import CEP
 from DownloadXLSX import ExcelDW
 from selenium import webdriver
-from webdriver_manager.chrome import ChromeDriverManager
-from selenium.webdriver.chrome.service import Service
-from selenium.webdriver.chrome.options  import Options
+from webdriver_manager.firefox import GeckoDriverManager
+from selenium.webdriver.firefox.service import Service
+from selenium.webdriver.firefox.options  import Options
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
@@ -72,14 +72,14 @@ class GS:
                     
                     espera=5
 
-                    #service=Service(GeckoDriverManager().install())
-                    service=Service()
+                    service=Service(GeckoDriverManager().install())
+                    #service=Service()
 
                     excel=pd.DataFrame(columns=['Razão Social','Endereço','Telefone','CEP'])
                     opcao=Options()
                     opcao.add_argument('--headless')
                     
-                    with webdriver.Chrome(service=service,options=opcao) as driver:
+                    with webdriver.Firefox(service=service,options=opcao) as driver:
 
                         driver.maximize_window()
 
