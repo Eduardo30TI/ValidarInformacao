@@ -15,6 +15,7 @@ import warnings
 import time
 import streamlit as st
 import pandas as pd
+import streamlit_js_eval
 
 warnings.filterwarnings('error')
 
@@ -133,6 +134,8 @@ class GS:
                     data=ExcelDW.DownloadXLSX(excel)
 
                     st.download_button('Extrair',data=data,file_name='Lista de Telefone.xlsx')
+                    time.sleep(5)
+                    streamlit_js_eval(js_expression='parent.window.location.reload()')
 
                     pass
 
